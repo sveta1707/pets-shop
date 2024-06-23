@@ -84,3 +84,32 @@ const items = [
     img: "./img/12.jpeg",
   },
 ];
+
+const shopItemsContainer = document.getElementById("shop-items");
+const itemTemplate = document.getElementById("item-template");
+
+items.forEach((item) => {
+  const newItem = itemTemplate.content.cloneNode(true);
+
+  const img = newItem.querySelector("img");
+  img.src = item.img;
+
+  const title = newItem.querySelector("h1");
+  title.textContent = item.title;
+
+  const description = newItem.querySelector("p");
+  description.textContent = item.description;
+
+  const price = newItem.querySelector(".price");
+  price.textContent = `$${item.price}`;
+
+  const tags = newItem.querySelector(".tags");
+  item.tags.forEach((tag) => {
+    const tagElement = document.createElement("span");
+    tagElement.textContent = tag;
+    tags.append(tagElement);
+  });
+
+  shopItemsContainer.append(newItem);
+
+});
