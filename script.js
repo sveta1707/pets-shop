@@ -107,6 +107,7 @@ items.forEach((item) => {
   item.tags.forEach((tag) => {
     const tagElement = document.createElement("span");
     tagElement.textContent = tag;
+    tagElement.classList.add("tag");
     tags.append(tagElement);
   });
 
